@@ -8,9 +8,9 @@ import time
 
 from backend.main import model, db, dialect
 
-from backend.agent_comp.prompts import *
+from backend.src.agent_comp.prompts import *
 
-from backend.agent_comp.output_models import *
+from backend.src.agent_comp.output_models import *
 
 class State(TypedDict):
     messages: Annotated[list, add_messages]
@@ -47,7 +47,7 @@ def question_construction(state):
     print("--CONSTRUCTING QUESTION--")
 
     messages = state['messages']
-    print(state['table_info'])
+    # print(state['table_info'])
     ques = messages[-1]
 
     if len(messages) > 10:

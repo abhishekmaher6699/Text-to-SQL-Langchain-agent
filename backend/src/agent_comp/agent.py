@@ -1,4 +1,4 @@
-from backend.agent_comp.nodes import *
+from backend.src.agent_comp.nodes import *
 from langgraph.graph import StateGraph, START, END
 
 

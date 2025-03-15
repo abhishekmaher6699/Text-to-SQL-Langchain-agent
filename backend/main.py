@@ -12,7 +12,7 @@ from langgraph.checkpoint.postgres import PostgresSaver
 from langchain_community.utilities import SQLDatabase
 from psycopg import Connection
 
-from backend.databases.operations import create_connection, show_all_tables
+from backend.src.databases.operations import create_connection, show_all_tables
 
 load_dotenv()
 
@@ -72,7 +72,7 @@ async def upload_csv(file: UploadFile = File(...)):
 def chat(request: ChatRequest):
     
     try:
-        from backend.agent_comp.agent import workflow
+        from backend.src.agent_comp.agent import workflow
 
         with Connection.connect(CHECKPOINT_DB_URI, **connection_kwargs) as conn:
 
