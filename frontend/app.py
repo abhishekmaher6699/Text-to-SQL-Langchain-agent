@@ -25,6 +25,13 @@ if "tables" not in st.session_state:
 if "last_selected_table" not in st.session_state:
     st.session_state.last_selected_table = None
 
+st.set_page_config(
+    page_title="Chat with Your CSV", 
+    page_icon="🗂️",                 
+    layout="wide",                  
+    initial_sidebar_state="expanded" 
+)
+
 # Sidebar: Upload new CSV file
 uploaded_file = st.sidebar.file_uploader("Upload a new CSV file", type=["csv"])
 if uploaded_file:
@@ -84,7 +91,6 @@ if st.session_state.chat_history:
 if st.session_state.last_selected_table:
     user_msg = st.chat_input("Enter your query: ")
     if user_msg:
-
         with st.chat_message("user"):
             st.markdown(user_msg)
 
@@ -93,10 +99,11 @@ if st.session_state.last_selected_table:
             "table_name": st.session_state.last_selected_table,
             "thread_id": st.session_state.thread_id,
         }
-        chat_response = requests.post(CHAT_API_URL, json=payload)
+
+        with st.spinner("Thinking..."):
+            chat_response = requests.post(CHAT_API_URL, json=payload)
 
         if chat_response.status_code == 200:
-
             chat_data = chat_response.json()
             with st.chat_message("assistant"):
                 st.markdown(chat_data["reply"])
@@ -109,6 +116,3 @@ if st.session_state.last_selected_table:
             )
         else:
             st.error("An error occurred while processing your query. Please try again after some time")
-
-else:
-    st.write("Please select a table to start the chat.")
