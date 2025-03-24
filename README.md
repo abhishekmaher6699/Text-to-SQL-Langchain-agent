@@ -1,5 +1,5 @@
 
-# Text-to-SQL Chatbot with LangChain and LangGraph
+# 💬 Text-to-SQL Chatbot with LangChain and LangGraph
 
 A Text-to-SQL chatbot designed to allow users to interact with their uploaded CSV files using natural language. The system efficiently processes user queries by converting them into SQL, fetching the required data from csv file(now saved in a SQLite database), and presenting the results back to the user. It is equipped with context memory, enabling smooth and dynamic conversations.
 
@@ -7,22 +7,23 @@ A Text-to-SQL chatbot designed to allow users to interact with their uploaded CS
 
 
 ## Key Features
-- **File Upload**: Users can upload CSV files via a user-friendly Streamlit interface. The uploaded files are automatically saved as tables in a SQLite database. 
+- **📂File Upload**: Users can upload CSV files via a user-friendly Streamlit interface. The uploaded files are automatically saved as tables in a SQLite database. 
 
-- **Natural Language Interaction**: Users can chat with the system to query their data, using natural language.
-- **SQL Query Generation**: The LangChain and LangGraph agent powers the conversion of natural language into SQL queries.
-- **Context Memory**: The chatbot remembers previous interactions to provide coherent and context-aware responses using a PostgresSQL database.
+- **💬Natural Language Interaction**: Users can chat with the system to query their data, using natural language.
+- **🔍SQL Query Generation**: The LangChain and LangGraph agent powers the conversion of natural language into SQL queries.
+- **🧠Context Memory**: The chatbot remembers previous interactions to provide coherent and context-aware responses using a PostgresSQL database.
 
-- **Frontend and Backend Separation**:
+- **🖥️Frontend and Backend Separation**:
   - **Frontend**: Built with Streamlit for an interactive user experience.
   - **Backend**: FastAPI handles CSV uploads, database interactions, and communication with the LangChain agent.
 
-## Technologies Used
+## 🚀Technologies Used
 - **LangChain & LangGraph**: For text-to-SQL translation and conversational AI Agent capabilities.
 - **FastAPI**: To create a robust backend API for handling file uploads, database operations, and agent interaction.
 - **Streamlit**: For a clean and intuitive user interface.
 - **SQLite**: As the database for storing the uploaded CSV files as tables.
-## Agentic Workflow
+- 
+## 🛠️Agentic Workflow
 This agent, built using LangChain and LangGraph, processes user queries step-by-step to ensure accurate and context-aware answers. Here's how it works:
 - **Retrieve Table Information**: The agent begins by fetching metadata or schema   information about the relevant table. This information provides context that will be used to construct better queries and answers.
 
@@ -37,7 +38,8 @@ This agent, built using LangChain and LangGraph, processes user queries step-by-
 - **Synthesize Final Answer**: All subquestions, their fetched data, and intermediate answers are sent to a final LLM. The LLM synthesizes a cohesive and comprehensive answer to the original user question.
 
 - **Handle Simple Questions in a Single Step**: If the analysis shows that the question can be answered with a single SQL query, the agent directly fetches the answer and provides it without further steps.
-## How to Use  
+- 
+##  How to Use  
 
 Follow these steps to set up and use the application:  
 
@@ -81,9 +83,13 @@ Ensure that the backend dependencies have been installed before running the app.
 
 ```bash  
 streamlit run frontend/app.py  
-```  
+```
 
 This will launch the Streamlit application, where you can interact with the agent through the user interface.  
 
 ---
 
+
+## 🤝 Miscellaneous
+
+Contributions and feedbacks are welcome :33
