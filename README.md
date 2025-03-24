@@ -38,7 +38,7 @@ This agent, built using LangChain and LangGraph, processes user queries step-by-
 - **Synthesize Final Answer**: All subquestions, their fetched data, and intermediate answers are sent to a final LLM. The LLM synthesizes a cohesive and comprehensive answer to the original user question.
 
 - **Handle Simple Questions in a Single Step**: If the analysis shows that the question can be answered with a single SQL query, the agent directly fetches the answer and provides it without further steps.
-- 
+
 ##  How to Use  
 
 Follow these steps to set up and use the application:  
