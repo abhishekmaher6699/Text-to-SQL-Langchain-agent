@@ -6,6 +6,7 @@ from io import StringIO
 from dotenv import load_dotenv
 from pydantic import BaseModel
 import os
+from sqlalchemy import create_engine
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.checkpoint.postgres import PostgresSaver
@@ -30,7 +31,17 @@ DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 
 CHECKPOINT_DB_URI = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-DB_URI = "sqlite:///backend/databases/tables.db"
+DB_PATH = "backend/data/tables.db"
+os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)  # Ensure directory exists
+DB_URI = f"sqlite:///{os.path.abspath(DB_PATH)}"  # Use absolute path
+
+try:
+    engine = create_engine(DB_URI)
+    connection = engine.connect()
+    print("Database connection successful.")
+    connection.close()
+except Exception as e:
+    print(f"Failed to connect to the database: {e}")
 
 db = SQLDatabase.from_uri(DB_URI)
 dialect = db.dialect

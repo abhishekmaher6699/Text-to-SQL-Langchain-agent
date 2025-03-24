@@ -2,7 +2,7 @@ from sqlalchemy import create_engine, text
 
 def create_connection():
     try:
-        database_url = f"sqlite:///backend/databases/tables.db"
+        database_url = f"sqlite:///backend/data/tables.db"
         engine = create_engine(database_url)
         print("Connection to SQLite established successfully!")
         return engine
