@@ -3,6 +3,8 @@
 
 A Text-to-SQL chatbot designed to allow users to interact with their uploaded CSV files using natural language. The system efficiently processes user queries by converting them into SQL, fetching the required data from csv file(now saved in a SQLite database), and presenting the results back to the user. It is equipped with context memory, enabling smooth and dynamic conversations.
 
+![image](https://github.com/user-attachments/assets/a93452ab-375d-4e88-8adb-ba097cf431d0)
+
 
 ## Key Features
 - **File Upload**: Users can upload CSV files via a user-friendly Streamlit interface. The uploaded files are automatically saved as tables in a SQLite database. 
