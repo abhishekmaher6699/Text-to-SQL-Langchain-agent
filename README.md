@@ -90,6 +90,6 @@ This will launch the Streamlit application, where you can interact with the agen
 ---
 
 
-## 🤝 Miscellaneous
+## 🤝Contributions
 
-Contributions and feedbacks are welcome :33
+Your ideas and feedback are welcome! 🌸
